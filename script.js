@@ -34,4 +34,33 @@ function generatePassword() {
   let numberInput = `0123456789`
   let specialInput =` !"#$%&'()*+,-./:;<=>?@[]^_{|}~`
 
+  function makeid(length) {
+    let result           = '';
+    let characters       = '';
+
+    if (lowerCase) {
+      let characters = characters.join(lowerCaseInput);
+    };
+
+    if (upperCase) {
+      let characters = characters.join(upperCaseInput);
+    };
+
+    if (number) {
+      let characters = characters.join(numberInput);
+    };
+
+    if (special) {
+      let characters = characters.join(specialInput);
+    };
+
+    console.log(characters);
+
+    let charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
 }
