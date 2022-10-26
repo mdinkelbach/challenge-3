@@ -23,7 +23,10 @@ function generatePassword() {
     window.alert(`Invalid Input`);
     limitNum = " "
   } else {
-    window.alert(`Valid Input`);
+    let lowerCase = window.confirm(`Do you want lower case characters?`);
+    let upperCase = window.confirm(`Do you want upper case characters?`);
+    let numbers = window.confirm(`Do you want numbers?`);
+    let special = window.confirm(`Do you want special characters?`);
   }
 
 }
