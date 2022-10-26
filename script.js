@@ -29,4 +29,9 @@ function generatePassword() {
     let special = window.confirm(`Do you want special characters?`);
   }
 
+  let lowerCaseInput = `abcdefghijklmnopqrstuvwxyz`
+  let upperCaseInput = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
+  let numberInput = `0123456789`
+  let specialInput =` !"#$%&'()*+,-./:;<=>?@[]^_{|}~`
+
 }
