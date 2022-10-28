@@ -5,4 +5,4 @@ This challenge was to create a javascript file for a password generation webpage
 
 ![Webpage Screenshot](./site-screenshot.png)
 
-Link: https://mdinkelbach.github.io/challenge-3/
+Link: https://mdinkelbach.github.io/password-generator/
