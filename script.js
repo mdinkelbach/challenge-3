@@ -20,13 +20,11 @@ function generatePassword() {
   let numbers = " ";
   let special = " ";
   
-  let characterLimit = window.prompt(`How many characters? Must be between 8 and 128.`)
-
-  let limitNum = parseInt(characterLimit);
+  let characterLimit = parseInt(window.prompt(`How many characters? Must be between 8 and 128.`))
   
-  if (limitNum < 8 || limitNum > 128 || typeof limitNum ==! "number") {
-    window.alert(`Invalid Input`);
-    limitNum = " "
+  if (characterLimit < 8 || characterLimit > 128 || !(/^[0-9]+$/.test(characterLimit))) {
+    window.alert(`Invalid Input: Please enter a number between 8 and 128.`);
+    characterLimit = " "
   } else {
     lowerCase = window.confirm(`Do you want lower case characters?`)
     upperCase = window.confirm(`Do you want upper case characters?`)
@@ -39,7 +37,7 @@ function generatePassword() {
   let numberInput = `0123456789`
   let specialInput =` !"#$%&'()*+,-./:;<=>?@[]^_{|}~`
 
-  function randomizer(length) {
+  function randomizer() {
     let result           = '';
     let characters       = '';
 
@@ -61,15 +59,14 @@ function generatePassword() {
 
     let charactersLength = characters.length;
 
-    for (let i = 0; i < limitNum; i++) {
+    for (let i = 0; i < characterLimit; i++) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-
-    //console.log(result);
 
     return result;
   }
 
   randomizer();
 
+  return randomizer();
 }
