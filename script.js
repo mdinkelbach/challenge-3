@@ -14,6 +14,11 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
+
+  let lowerCase = " ";
+  let upperCase = " ";
+  let numbers = " ";
+  let special = " ";
   
   let characterLimit = window.prompt(`How many characters? Must be between 8 and 128.`)
 
@@ -23,10 +28,10 @@ function generatePassword() {
     window.alert(`Invalid Input`);
     limitNum = " "
   } else {
-    let lowerCase = window.confirm(`Do you want lower case characters?`);
-    let upperCase = window.confirm(`Do you want upper case characters?`);
-    let numbers = window.confirm(`Do you want numbers?`);
-    let special = window.confirm(`Do you want special characters?`);
+    lowerCase = window.confirm(`Do you want lower case characters?`)
+    upperCase = window.confirm(`Do you want upper case characters?`)
+    numbers = window.confirm(`Do you want numbers?`)
+    special = window.confirm(`Do you want special characters?`)
   }
 
   let lowerCaseInput = `abcdefghijklmnopqrstuvwxyz`
@@ -34,33 +39,36 @@ function generatePassword() {
   let numberInput = `0123456789`
   let specialInput =` !"#$%&'()*+,-./:;<=>?@[]^_{|}~`
 
-  function makeid(length) {
+  function randomizer(length) {
     let result           = '';
     let characters       = '';
 
     if (lowerCase) {
-      let characters = characters.join(lowerCaseInput);
+      characters = characters.concat(lowerCaseInput);
     };
-
+    
     if (upperCase) {
-      let characters = characters.join(upperCaseInput);
+      characters = characters.concat(upperCaseInput);
     };
 
-    if (number) {
-      let characters = characters.join(numberInput);
+    if (numbers) {
+      characters = characters.concat(numberInput);
     };
 
     if (special) {
-      let characters = characters.join(specialInput);
+      characters = characters.concat(specialInput);
     };
-
-    console.log(characters);
 
     let charactersLength = characters.length;
     for ( let i = 0; i < length; i++ ) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
+
+    console.log(characters);
+
     return result;
   }
+
+  randomizer();
 
 }
