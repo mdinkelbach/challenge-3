@@ -14,14 +14,16 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-
+  // Password parameter defaults
   let lowerCase = " ";
   let upperCase = " ";
   let numbers = " ";
   let special = " ";
   
+  // Collects password length
   let characterLimit = parseInt(window.prompt(`How many characters? Must be between 8 and 128.`))
   
+  // Sets password length restrictions, moving onto password parameters if allowed
   if (characterLimit < 8 || characterLimit > 128 || !(/^[0-9]+$/.test(characterLimit))) {
     window.alert(`Invalid Input: Please enter a number between 8 and 128.`);
     characterLimit = " "
@@ -32,41 +34,49 @@ function generatePassword() {
     special = window.confirm(`Do you want special characters?`)
   }
 
+  // Error message if no paramters are selected
+  if (!lowerCase && !upperCase && !numbers && !special) {
+    window.alert(`You must have at least one paramter to create a password!`)
+  }
+
+  // Password parameter possibilities
   let lowerCaseInput = `abcdefghijklmnopqrstuvwxyz`
   let upperCaseInput = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
   let numberInput = `0123456789`
   let specialInput =` !"#$%&'()*+,-./:;<=>?@[]^_{|}~`
 
+  // Builds password
   function randomizer() {
     let result           = '';
     let characters       = '';
 
+    // Adds lowercase letters if selected
     if (lowerCase) {
       characters = characters.concat(lowerCaseInput);
     };
     
+    // Adds uppercase letters if selected
     if (upperCase) {
       characters = characters.concat(upperCaseInput);
     };
 
+    // Adds numbers if selected
     if (numbers) {
       characters = characters.concat(numberInput);
     };
 
+    // Adds special characters if selected
     if (special) {
       characters = characters.concat(specialInput);
     };
 
-    let charactersLength = characters.length;
-
+    // Creates the password based on which parameters were selected
     for (let i = 0; i < characterLimit; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
     }
 
     return result;
   }
-
-  randomizer();
 
   return randomizer();
 }
