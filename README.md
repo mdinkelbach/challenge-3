@@ -1,5 +1,5 @@
 # Challenge-3
-Challenge #2: Javascript
+Challenge #3: Javascript
 
 This challenge was to create a javascript file for a password generation webpage. All the hml and css elements were complete.
 
