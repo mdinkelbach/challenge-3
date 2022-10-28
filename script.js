@@ -60,11 +60,12 @@ function generatePassword() {
     };
 
     let charactersLength = characters.length;
-    for ( let i = 0; i < length; i++ ) {
+
+    for (let i = 0; i < limitNum; i++) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
 
-    console.log(characters);
+    //console.log(result);
 
     return result;
   }
